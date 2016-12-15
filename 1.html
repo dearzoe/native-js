@@ -3,14 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #show{
+            height: 100px;
+            width: 100px;
+            background:yellow;
+            /*position: absolute;
+            left: 100px;
+            top: 0;*/
+        }
+    </style>
 </head>
 <body>
-<div id="div1">点我</div>
+<div id="show"></div>
+<input id="button" type="button" value="点我" style="background: red; border: none; color: white; "><div>1</div><p>2</p>
+<div id="dd">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <p></p>
+    <p></p>
+    <p>
+        <!--在IE678上就不行了 -->
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </p>
+</div>
 <script>
-     function fn() {
-         console.log(this)
+    var showDiv=document.getElementById("show");
+    var dd=document.getElementById("dd");
+    var But=document.getElementById("button");
+    var div=document.getElementsByTagName("div");
+    var p=document.getElementsByTagName("p");
+     function show() {
+         console.log(this.nextSibling.cloneNode(true));
+         console.log(this.nextSibling.nodeType);
+         console.log(dd.children)
+
      }
-    document.getElementById("div1").onclick=fn;
+    But.onclick=show;
+     showDiv.style.cssFloat="right";
+     showDiv.style.styleFloat="right";
 </script>
 </body>
 </html>
